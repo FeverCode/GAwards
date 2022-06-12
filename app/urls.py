@@ -2,6 +2,9 @@ from django.urls import include, path
 from app import views
 from rest_framework.routers import DefaultRouter
 from .views import RegisterView
+from django.contrib.auth import views as auth_views
+from .views import CustomLoginView
+from .forms import LoginForm
 
 
 
@@ -16,5 +19,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('api/', include(router.urls)),
     path('register/', RegisterView.as_view(), name='register'),
+    path('login/', CustomLoginView.as_view(redirect_authenticated_user=True, template_name='registration/login.html',authentication_form=LoginForm), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
     
 ]

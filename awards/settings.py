@@ -149,3 +149,8 @@ cloudinary.config(
     api_key=config('CD_API_KEY'),
     api_secret=config('CD_API_KEY_SECRET')
 )
+
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'login'
