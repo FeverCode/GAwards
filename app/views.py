@@ -6,6 +6,7 @@ from rest_framework import viewsets
 from .models import *
 from .serializer import *
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
