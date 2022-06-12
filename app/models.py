@@ -6,10 +6,11 @@ from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE, related_name="profile")
-    profile_photo = CloudinaryField('image')
+    profile_photo = CloudinaryField('image', default='default.png')
     bio = models.TextField(max_length=500, blank=True)
     name = models.CharField(max_length=255, blank=True)
     location = models.CharField(max_length=255, blank=True)
@@ -45,6 +46,19 @@ class Post(models.Model):
     def save_post(self):
         self.save()
         
+    # resizing images
+
+
+    def save(self, *args, **kwargs):
+        super().save()
+
+        img = CloudinaryField.open(self.avatar.path)
+
+        if img.height > 100 or img.width > 100:
+            new_img = (100, 100)
+            img.thumbnail(new_img)
+            img.save(self.avatar.path)
+        
         
 class Rating(models.Model):
    rating =((1, '1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'),(7,'7'),(8,'8'),(9,'9'),(10,'10'))
@@ -67,4 +81,8 @@ class Rating(models.Model):
    def get_ratings(cls, id):
        ratings = Rating.objects.filter(post_id=id).all()
        return ratings
-        
+
+    # resizing images
+
+
+    
