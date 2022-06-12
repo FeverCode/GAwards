@@ -21,7 +21,6 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name="app:user-detail")
     profile = ProfileSerializer(read_only=True)
     posts = PostSerializer(read_only=True,many=True)
     

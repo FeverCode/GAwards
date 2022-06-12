@@ -1,1 +1,11 @@
-<h1>Works</h1>
+{%extends 'base.html'%}
+{% load bootstrap5 %}
+{% load static%}
+{%block content%}
+
+<div class="container">
+
+       {% include "awards.html" %}
+</div>
+
+{% endblock %}

@@ -46,7 +46,10 @@ INSTALLED_APPS = [
     'bootstrap5',
     'cloudinary',
     'rest_framework.authtoken',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
