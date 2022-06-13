@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'crispy_forms',
     'social_django',
+    'sass_processor',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -154,6 +155,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -180,3 +184,12 @@ SOCIAL_AUTH_GITHUB_SECRET = config('SOCIAL_AUTH_GITHUB_SECRET')
 # social auth configs for google
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
+
+# Django Sass
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
