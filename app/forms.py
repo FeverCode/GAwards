@@ -71,7 +71,7 @@ class LoginForm(AuthenticationForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['name', 'profile_photo', 'bio','location']
+        fields = ['profile_photo', 'bio','location']
 
 
 class UserUpdateForm(forms.ModelForm):
