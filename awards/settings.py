@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'social_django',
     'sass_processor',
+    'pyuploadcare.dj',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -193,3 +194,8 @@ STATICFILES_FINDERS = [
 
 # Django Sass
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
+
+UPLOADCARE = {
+    'pub_key': config('pub_key'),
+    'secret': config('secret'),
+}

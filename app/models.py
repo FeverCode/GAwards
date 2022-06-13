@@ -4,7 +4,7 @@ from unicodedata import name
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
-from django.core.validators import MaxValueValidator, MinValueValidator
+from pyuploadcare.dj.models import ImageField
 
 
 # Create your models here.
@@ -25,7 +25,7 @@ class Post(models.Model):
     url = models.URLField(max_length=255)
     description = models.TextField(max_length=255)
     technologies = models.CharField(max_length=255, blank=True)
-    image = CloudinaryField('image')
+    photo = ImageField(manual_crop='1280x720', default='default.png')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
     date = models.DateField(auto_now_add=True, blank=True)
     
