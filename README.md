@@ -35,9 +35,8 @@ Live link to the project
 ## Installation
 
 + Open Terminal {Ctrl+Alt+T} on ubuntu
-
 + git clone `https://github.com/FeverCode/GAwards`
-+ cd Instagram-clone
++ cd GAwards
 + code . or atom . based on prefered text editor
 
 ## Running Project
