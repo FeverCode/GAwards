@@ -1,5 +1,4 @@
 from datetime import date
-import re
 from unicodedata import name
 from django.db import models
 from cloudinary.models import CloudinaryField
@@ -71,7 +70,8 @@ class Rating(models.Model):
        ratings = Rating.objects.filter(post_id=id).all()
        return ratings
 
-    # resizing images
+class Meta:
+        unique_together = ("rating", "design", "usability", "content")
 
 
     

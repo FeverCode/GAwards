@@ -3,7 +3,7 @@ import random
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views import View
-from .forms import RatingsForm, RegisterForm, LoginForm, UserUpdateForm, ProfileUpdateForm
+from app.forms import RatingsForm, RegisterForm, LoginForm, UserUpdateForm, ProfileUpdateForm
 from rest_framework import viewsets
 from .models import *
 from .serializer import *
@@ -123,7 +123,7 @@ def project(request, post):
     else:
         rating_status = True
     if request.method == 'POST':
-        form = RatingsForm(request.POST or None)
+        form = RatingsForm(request.POST)
         if form.is_valid():
             rate = form.save(commit=False)
             rate.user = request.user
@@ -157,7 +157,6 @@ def project(request, post):
 
     }
     return render(request, 'project.html', params)
-
 
 class CreatePostView(LoginRequiredMixin, CreateView):
     model = Post

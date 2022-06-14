@@ -83,6 +83,18 @@ class UserUpdateForm(forms.ModelForm):
         
         
 class RatingsForm(forms.ModelForm):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['design'].required = True
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['usability'].required = True
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['content'].required = True
     class Meta:
         model = Rating
         fields = ['design', 'usability', 'content']
