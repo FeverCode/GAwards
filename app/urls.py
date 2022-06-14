@@ -27,6 +27,7 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('project/<post>', views.project, name='project'),
     path('new/post', views.CreatePostView.as_view(), name='post'),
+    path('search/', views.search_project, name='search'),
     
     
 ]
