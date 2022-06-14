@@ -46,18 +46,6 @@ class Post(models.Model):
     def save_post(self):
         self.save()
         
-    # resizing images
-
-
-    # def save(self, *args, **kwargs):
-    #     super().save()
-
-    #     img = CloudinaryField.open(self.avatar.path)
-
-    #     if img.height > 100 or img.width > 100:
-    #         new_img = (100, 100)
-    #         img.thumbnail(new_img)
-    #         img.save(self.avatar.path)
         
         
 class Rating(models.Model):

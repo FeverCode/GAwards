@@ -80,14 +80,6 @@ class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email']
-
-
-# class PostForm(forms.ModelForm):
-#     photo = ImageField()
-
-#     class Meta:
-#         model = Post
-#         fields = ('photo', 'title', 'url', 'description', 'technologies',)
         
         
 class RatingsForm(forms.ModelForm):

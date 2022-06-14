@@ -119,7 +119,7 @@ def project(request, post):
     else:
         rating_status = True
     if request.method == 'POST':
-        form = RatingsForm(request.POST)
+        form = RatingsForm(request.POST or None)
         if form.is_valid():
             rate = form.save(commit=False)
             rate.user = request.user
