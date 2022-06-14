@@ -38,7 +38,7 @@
             <h5 class="card-title"><strong>{{post.description}}</strong>
                 <a href="{{ post.url }}" class="btn btn-sm btn-info float-right"> View Site </a></h5>
             <p class="card-text "><img src="{{post.user.profile.profile_photo.url}}" class="mr-2 rounded-circle nav-img" alt=""  width="30">
-            <a href="{% url 'user-profile'%}">{{user.username}}</a>
+            <a href="{% url 'user-profile'%}">{{user.post.username}}</a>
                 <span>{{post.date|date}}</span>
             </p>
             <hr>
