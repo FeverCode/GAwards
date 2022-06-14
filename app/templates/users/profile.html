@@ -1,7 +1,15 @@
 {% extends "users/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div  class="container text-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark scrolling-navbar" id="nbar">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}"> <strong class="mr-4 brand"> GAwards</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+<div  class="container text-light mt-5">
   <div style="margin-top:40px;" class="content-section">
     <div class="media">
       <img class="rounded-circle account-img" src="{{ user.profile_photo.image.url }}">

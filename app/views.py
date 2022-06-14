@@ -1,18 +1,20 @@
+from email import message
 import random
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, render, redirect
-from django.contrib import messages
 from django.views import View
 from .forms import RatingsForm, RegisterForm, LoginForm, UserUpdateForm, ProfileUpdateForm
 from rest_framework import viewsets
 from .models import *
 from .serializer import *
-from django.contrib.auth.views import LoginView, PasswordResetView
+from django.contrib.auth.views import LoginView, PasswordResetView, PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django.core.mail import send_mail
+from django.contrib import messages
 
 # Create your views here.
 def dispatch(self, request, *args, **kwargs):
@@ -199,4 +201,10 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
                       "if an account exists with the email you entered. You should receive them shortly." \
                       " If you don't receive an email, " \
                       "please make sure you've entered the address you registered with, and check your spam folder."
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('login')
+
+
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+    template_name = 'registration/change_password.html'
+    success_message = "Successfully Changed Your Password"
+    success_url = reverse_lazy('login')

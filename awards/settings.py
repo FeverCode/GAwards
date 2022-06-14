@@ -160,18 +160,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 cloudinary.config(
     cloud_name=config('CD_NAME'),
     api_key=config('CD_API_KEY'),
     api_secret=config('CD_API_KEY_SECRET')
 )
-
-SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
 
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
@@ -199,3 +192,20 @@ UPLOADCARE = {
     'pub_key':'d4f155ee3f0501d25493',
     'secret': 'c58133e0c1a0758f5ee3',
 }
+
+# Email configurations remember to install python-decouple
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
+
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
