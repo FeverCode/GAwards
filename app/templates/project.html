@@ -12,16 +12,16 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-3"></div>
-                            <div class="col-md-6 d-flex flex-row mx-auto text-dark" style="margin-top:20%">
+                            <div class="col-md-6 d-flex flex-row mx-auto" style="margin-top:20%">
                                 {% for rating in post.ratings.all %}
                                 {% if forloop.counter is post.ratings.all.count %}
-                                <div class="text-dark"id="design">{{ rating.design_average}}<br>
+                                <div id="design" class="mx-auto text-primary h1">{{ rating.design_average}}<br>
                                     <span class="rates">design</span>
                                 </div>
-                                <div id="usable" class="mx-auto">{{ rating.usability_average }}<br>
+                                <div id="usable" class="mx-auto text-danger h1">{{ rating.usability_average }}<br>
                                     <span class="rates">usability</span>
                                 </div>
-                                <div id="contente">{{ rating.content_average }}<br>
+                                <div id="contente" class="mx-auto text-warning h1">{{ rating.content_average }}<br>
                                     <span class="rates">content</span>
                                 </div>
                                 {% endif %}
@@ -68,7 +68,7 @@
             </div>
 
             {% if rating_status %}
-            <h5 class="text-dark">You have already voted</h5>
+            <h5 class="text-white">You have already voted</h5>
             {% else %}
             {% if user.is_authenticated %}
             <form action="" method="post" enctype="multipart/form-data">
