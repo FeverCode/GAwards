@@ -196,6 +196,6 @@ STATICFILES_FINDERS = [
 SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
 
 UPLOADCARE = {
-    'pub_key': config('pub_key'),
-    'secret': config('secret'),
+    'pub_key':'d4f155ee3f0501d25493',
+    'secret': 'c58133e0c1a0758f5ee3',
 }

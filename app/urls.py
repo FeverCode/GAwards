@@ -25,6 +25,8 @@ urlpatterns = [
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('user/profile/', views.user_profile, name='user-profile'),
     path('profile/', views.profile, name='profile'),
+    path('project/<post>', views.project, name='project'),
+    path('new/post', views.CreatePostView.as_view(), name='post'),
     
     
 ]

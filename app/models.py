@@ -25,7 +25,7 @@ class Post(models.Model):
     url = models.URLField(max_length=255)
     description = models.TextField(max_length=255)
     technologies = models.CharField(max_length=255, blank=True)
-    photo = ImageField(manual_crop='1280x720', default='default.png')
+    photo = CloudinaryField('image')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
     date = models.DateField(auto_now_add=True, blank=True)
     
@@ -49,20 +49,21 @@ class Post(models.Model):
     # resizing images
 
 
-    def save(self, *args, **kwargs):
-        super().save()
+    # def save(self, *args, **kwargs):
+    #     super().save()
 
-        img = CloudinaryField.open(self.avatar.path)
+    #     img = CloudinaryField.open(self.avatar.path)
 
-        if img.height > 100 or img.width > 100:
-            new_img = (100, 100)
-            img.thumbnail(new_img)
-            img.save(self.avatar.path)
+    #     if img.height > 100 or img.width > 100:
+    #         new_img = (100, 100)
+    #         img.thumbnail(new_img)
+    #         img.save(self.avatar.path)
         
         
 class Rating(models.Model):
    rating =((1, '1'),(2,'2'),(3,'3'),(4,'4'),(5,'5'),(6,'6'),(7,'7'),(8,'8'),(9,'9'),(10,'10'))
    design = models.IntegerField(choices=rating, blank=True)
+   usability = models.IntegerField(choices=rating, blank=True)
    content = models.IntegerField(choices=rating, blank=True)
    score = models.IntegerField(default=0, blank=True)
    design_average = models.FloatField(default=0, blank=True)
