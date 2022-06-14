@@ -12,6 +12,7 @@
 + [Api Endpoints](#api-endpoints)
 + [Project Objectives](#project-objectives)
 + [Features](#features)
++ [BDD](#bdd)
 + [Technologies Used](#technologies-used)
 + [Licence](#licence)
 + [Authors Info](#authors-info)
@@ -85,6 +86,14 @@ Live link to the project
 + Users can view other users' profiles
 + Users can view other users' projects and their ratings
 + Users can view other users' overall score
+
+## BDD
+
++ Landing page with various projects from different users. A navigation bar as well with home, login and register routes.
++ Create an account with a unique username,an email and password.
++ User can also create and update their profile.
++ Profile view displays users projects, click on the image to view more details of the project and get access to a live link.
++ Click on the upload submit your site button to add a project for others to view.
 
 
 ## Technologies Used
