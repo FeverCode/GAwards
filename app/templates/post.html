@@ -16,7 +16,14 @@
 </head>
 
 <body>
-  {% include "navbar.html" %}
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark scrolling-navbar" id="nbar">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}"> <strong class="mr-4 brand"> GAwards</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
   <div style="margin-top:100px" class="container">
     <form action="{%url 'post'%}" method="post" enctype="multipart/form-data">
       {%csrf_token%}
@@ -24,7 +31,11 @@
       {% bootstrap_form form%}
       <input type="submit" class="btn btn-success btn-lg" value="Post">
     </form>
+     <a href="/" class="d-block mx-auto">
+        <button class="btn btn-sm btn-info d-block mx-auto">Go Back</button>
+    </a>
   </div>
+ 
 
   {% block scripts %}
   
