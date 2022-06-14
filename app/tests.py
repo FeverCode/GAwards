@@ -1,3 +1,4 @@
+from this import s
 from django.test import TestCase
 from .models import *
 
@@ -72,9 +73,30 @@ class TestPost(TestCase):
         post = Post.get_post(1)
         self.assertTrue(len(post) > 0)
         
-    # def test_get_ratings(self):
-    #     self.post.save()
-    #     post = Post.get_ratings(1)
-    #     self.assertTrue(len(post) > 0)
+        
+class TestRating(TestCase):
+    def test_rating(self):
+        self.assertEqual(1, 1)
+        
+    def setUp(self):
+        self.user = User.objects.create_user(id=1,username='testuser', password='12345')
+        self.user.save()
+        self.post = Post.objects.create(id=1,user=self.user,title='test title')
+        self.post.save()
+        self.rating = Rating.objects.create(id=1,user=self.user,post=self.post,design=1,usability=1,content=1)
+        self.rating.save()
+        
+    def test_instance(self):
+        self.assertTrue(isinstance(self.rating, Rating))
+        
+    def test_save(self):
+        self.rating.save()
+        rating = Rating.objects.all()
+        self.assertTrue(len(rating) > 0)
+        
+    def test_get_ratings(self):
+        self.post.save()
+        post = Rating.get_ratings(1)
+        self.assertTrue(len(post) > 0)
         
         
