@@ -11,6 +11,7 @@
 + [Running Tests](#running-tests)
 + [Api Endpoints](#api-endpoints)
 + [Project Objectives](#project-objectives)
++ [Features](#features)
 + [Technologies Used](#technologies-used)
 + [Licence](#licence)
 + [Authors Info](#authors-info)
@@ -70,6 +71,21 @@ Live link to the project
 + Search for projects
 + View projects overall score
 + View my profile page
+
+## Features
+
++ Users can register and get welcome emails
++ Users can update their profiles
++ Users can post projects and get rated
++ Users can rate other users' projects
++ Users can search for projects
++ Users can view projects overall score
++ Users can view their profile page
++ Users can view their projects and their ratings
++ Users can view other users' profiles
++ Users can view other users' projects and their ratings
++ Users can view other users' overall score
+
 
 ## Technologies Used
 
