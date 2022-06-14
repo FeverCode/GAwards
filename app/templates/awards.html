@@ -8,19 +8,20 @@
 {%for post in posts%}
 <article class="postcard dark blue" data-bs-toggle="modal" data-bs-target="#exampleModal{{post.id}}>
 
-	<a class="postcard__img_link" href="#">
-		<img class="postcard__img" src="{{post.photo.url}}" alt="Image Title" />
+	<a class=" postcard__img_link" href="#">
+	<img class="postcard__img" src="{{post.photo.url}}" alt="Image Title" />
 	</a>
 	<div class="postcard__text">
 		<h1 class="postcard__title blue"><a href="#">{{post.title}}</a></h1>
 		<div class="postcard__subtitle small">
-				<i class="fas fa-calendar-alt mr-2"></i>{{post.date}}
+			<i class="fas fa-calendar-alt mr-2"></i>{{post.date}}
 		</div>
 		<div class="postcard__bar"></div>
 		<div class="postcard__preview-txt">{{post.description}}</div>
 		<ul class="postcard__tagbox">
-			<a href="{{user.profile}}">
-			<li class="tag__item"><i class="far fa-user-circle mr-2"></i> By {{post.user.username}}</li>
+			<a href="{% url 'user-profile' %}">
+				<li class="tag__item"> <img class="rounded-circle nav-img" src="{{user.profile.profile_photo.url }}"
+						alt="" width="30"> By {{post.user.username}}</li>
 			</a>
 
 			<li class="tag__item"><i class="fas fa-tag mr-2"></i>{{post.technologies}}</li>
@@ -29,5 +30,5 @@
 			</li>
 		</ul>
 	</div>
-</article> 
+</article>
 {%endfor%}
