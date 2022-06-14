@@ -28,6 +28,7 @@ urlpatterns = [
     path('project/<post>', views.project, name='project'),
     path('new/post', views.CreatePostView.as_view(), name='post'),
     path('search/', views.search_project, name='search'),
+    path('password-reset/', ResetPasswordView.as_view(), name='password_reset'),
     
     
 ]

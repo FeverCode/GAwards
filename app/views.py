@@ -7,10 +7,12 @@ from .forms import RatingsForm, RegisterForm, LoginForm, UserUpdateForm, Profile
 from rest_framework import viewsets
 from .models import *
 from .serializer import *
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, PasswordResetView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
 
 # Create your views here.
 def dispatch(self, request, *args, **kwargs):
@@ -187,3 +189,14 @@ def search_project(request):
     else:
         message = "You haven't searched for any image category"
     return render(request, 'search.html', {'message': message})
+
+
+class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+    template_name = 'registration/password_reset.html'
+    email_template_name = 'registration/password_reset_email.html'
+    subject_template_name = 'registration/password_reset_subject'
+    success_message = "We've emailed you instructions for setting your password, " \
+                      "if an account exists with the email you entered. You should receive them shortly." \
+                      " If you don't receive an email, " \
+                      "please make sure you've entered the address you registered with, and check your spam folder."
+    success_url = reverse_lazy('index')
