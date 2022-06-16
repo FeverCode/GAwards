@@ -15,6 +15,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
 from django.contrib import messages
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 # Create your views here.
 def dispatch(self, request, *args, **kwargs):
@@ -69,16 +71,18 @@ class CustomLoginView(LoginView):
         return super(CustomLoginView, self).form_valid(form)
 
 
-class ProfileViewSet(LoginRequiredMixin,viewsets.ModelViewSet):
+class ProfileViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated]
     
     
-class PostViewSet(LoginRequiredMixin, viewsets.ModelViewSet):
+class PostViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     
-class UserViewSet(LoginRequiredMixin, viewsets.ModelViewSet):
+
+class UserViewSet(LoginRequiredMixin, viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
