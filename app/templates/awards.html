@@ -6,7 +6,7 @@
 </section>
 
 {%for post in posts%}
-<article class="postcard dark blue" data-bs-toggle="modal" data-bs-target="#exampleModal{{post.id}}>
+<article class="postcard dark blue">
 
 	<a class="postcard__img_link" href="{% url 'project' post.title %}">
 	<img class="postcard__img" src="{{post.photo.url}}" alt="Image Title" />
