@@ -69,7 +69,7 @@ class CustomLoginView(LoginView):
         return super(CustomLoginView, self).form_valid(form)
 
 
-class ProfileViewSet(viewsets.ModelViewSet):
+class ProfileViewSet(LoginRequiredMixin,viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     
@@ -78,7 +78,7 @@ class PostViewSet(LoginRequiredMixin, viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(LoginRequiredMixin, viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
