@@ -22,7 +22,7 @@
  An application that allows a user to post a project he/she has created and get it reviewed by his/her peers.
 
 Live link to the project
-[GAwards](https://g-awards.herokuapp.com/)
+[GAwards](https://gawards.up.railway.app)
 
 ## Requirements
 
